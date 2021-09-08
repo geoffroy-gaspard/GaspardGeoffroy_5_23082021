@@ -1,0 +1,15 @@
+.bear__bg {
+    background-image: url(/back-end/images/ours.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 350px;
+    opacity: 0.85;
+
+    &__banner {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 11em;
+        color: darken($color: $color-tertiary, $amount: 25%);
+    }
+}

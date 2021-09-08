@@ -6,32 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <script src="https://kit.fontawesome.com/094820c2ba.js" crossorigin="anonymous"></script>
     <title>Orinoco</title>
 </head>
 
 <body>
     <header>
-        <div>
-            <div>
+        <div class="container-fluid">
+            <div class="row-header">
                 <div class="nav">
-                    <a href="index.html"><h1>Orinoco</h1></a>
+                    <a href="index.html">
+                        <h1 class="nav__logo">Orinoco</h1>
+                    </a>
                     <a href="#">
-                        <div></div>
+                        <div class="nav__icone"><i class="fas fa-shopping-cart"></i>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <div>
-            <div>
-                <h2>Producteur d'oursons beaucoup trop mignons</h2>
-                <p>Les plus beaux oursons à disponibilité de tous, à prix compétitif et d'une qualité premium</p>
+        <div class="bear__bg">
+            <div class="bear__bg__banner">
+                <h2 class="bear__bg__banner__title">Producteur d'oursons beaucoup trop mignons</h2>
+                <p class="bear__bg__banner_description">Les plus beaux oursons à disponibilité de tous, à prix compétitif et d'une qualité premium</p>
             </div>
         </div>
-        <div>
+        <div class="bear-container container-fluid">
             <h3>Nos oursons</h3>
-            <div></div>
+            <div class="bear"></div>
         </div>
     </main>
     <footer>
@@ -40,8 +44,7 @@
             <a href="#">Mentions légales</a>
         </div>
     </footer>
-    <script src="server.js"></script>
-    <script src="app.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

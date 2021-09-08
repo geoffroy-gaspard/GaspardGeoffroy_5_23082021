@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+
+    &__logo {
+        text-align: left;
+    }
+
+    &__icone {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        font-size: 1.5em;
+    }
+}
