@@ -23,5 +23,19 @@ h4 {
         width: 100%;
         min-height: 850px;
         background: rgba(248, 248, 248, 0.4);
+
+        @include mq(large) {
+            min-height: 1100px;
+        }
+        @include mq(xlarge) {
+            min-height: 1650px;
+        }
+    }
+
+    @include mq(large) {
+        min-height: 1100px;
+    }
+    @include mq(xlarge) {
+        min-height: 1650px;
     }
 }
