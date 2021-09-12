@@ -26,6 +26,10 @@
         }
     }
 
+    @include mq(medium) {
+        min-height: 450px;
+    }
+
     @include mq(large) {
         min-height: 550px;
     }
