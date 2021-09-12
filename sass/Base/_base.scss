@@ -8,3 +8,20 @@ a {
     color: $color-secondary;
     text-decoration: none;
 }
+
+h4 {
+    margin-bottom: 0;
+}
+
+.main__order {
+    background-image: url(/back-end/images/ours2.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 850px;
+
+    &__bg {
+        width: 100%;
+        min-height: 850px;
+        background: rgba(248, 248, 248, 0.4);
+    }
+}

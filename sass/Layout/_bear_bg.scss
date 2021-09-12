@@ -8,11 +8,18 @@
     &__banner {
         display: flex;
         flex-direction: column;
-        text-align: center;
         padding-top: 11em;
+        font-weight: bold;
         color: darken($color: $color-secondary, $amount: 25%);
 
-        @include mq(large) {
+        &__title {
+            align-self: center;
+            background-color: rgba(190, 190, 190, 0.5);  
+            padding: 2%;
+            border-radius: 1em/1em;
+        }
+
+        @include mq(medium) {
             padding-top: 8em;
         }
     }
@@ -40,7 +47,7 @@
         width: 90%;
         height: 90px;
         font-size: 80%;
-        margin-top: 5%;
+        margin: 2.5% 0 2.5% 0;
         padding: 1%;
         border-radius: 1em/1em;
         box-shadow: 0 4px 6px #d2d2d2;

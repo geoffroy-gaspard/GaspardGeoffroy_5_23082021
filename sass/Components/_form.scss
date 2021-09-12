@@ -1,0 +1,45 @@
+.form {
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8%;
+    padding: 2%;
+    border-radius: 1em/1em;
+    color: #0d6efd;
+    text-align: center;
+
+    &__icone {
+        align-self: center;
+        width: 70px;
+        font-size: 50px;
+        color: #0d6efd;
+        background-color: #ffff;
+        border-radius: 2.8em/2.8em;
+        margin-top: -40px;
+
+        @include mq(large) {
+            margin-top: -50px;
+        }
+        @include mq(xlarge) {
+            margin-top: -60px;
+        }
+    }
+
+    &__order {
+        width: 90%;
+        margin: 10px;
+        border-radius: 1em/1em;
+        box-shadow: 0 4px 6px #d2d2d2;
+    }
+
+    .btn__order {
+        display: flex;
+        justify-content: center;
+
+        &__submit {
+            border-radius: 1em/1em;
+        }
+
+    }
+}

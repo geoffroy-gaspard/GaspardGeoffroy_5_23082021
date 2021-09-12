@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.css" />
     <script src="https://kit.fontawesome.com/094820c2ba.js" crossorigin="anonymous"></script>
-    <title>Orinoco</title>
+    <title>Orinoco - Mon panier</title>
 </head>
 
 <body>
@@ -27,46 +27,36 @@
         </div>
     </header>
     <main>
-        <div class="bear__bg">
-            <div class="bear__bg__banner">
-                <div class="bear__bg__banner__title">
-                    <h2>Producteur d'oursons beaucoup trop mignons</h2>
-                    <p>Les plus beaux oursons à disponibilité de tous, à prix
-                        compétitif et d'une qualité premium</p>
-                </div>
+        <h1 class="title">Mon panier</h1>
+        <div class="products__choice"></div>
+        <div class="btn__cancel"><button type="button" class="btn btn-secondary">Vider mon panier</button></div>
+        <div class="form">
+            <div class="form__icone"><i class="fas fa-cash-register"></i>
             </div>
-        </div>
-        <div class="card__quality container-fluid">
-            <div class="card__quality__services">
-                <div class="icone"><i class="fas fa-user-shield"></i>
+            <h4>Passez votre commande</h4>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6 form__name">
+                        <input type="text" class="form-control form__order" id="input" placeholder="Prénom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control form__order" id="input" placeholder="Nom">
+                    </div>
                 </div>
-                <div class="card__quality__services__banner">
-                    <h4>Garantie à Vie</h4>
-                    <p>Nos peluches sont à l'épreuve du temps et nous vous fournissons toutes réparations nécessaire</p>
+                <div class="form-group">
+                    <input type="text" class="form-control form__order" id="inputAddress" placeholder="Adresse">
                 </div>
-            </div>
-            <div class="card__quality__services">
-                <div class="icone"><i class="fas fa-shield-alt"></i>
+                <div class="form-group">
+                    <input type="text" class="form-control form__order" id="inputCity" placeholder="Ville">
                 </div>
-                <h4>Transaction sécurisée</h4>
-            </div>
-            <div class="card__quality__services">
-                <div class="icone"><i class="fas fa-truck"></i>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control form__order" id="inputEmail4" placeholder="Email">
+                    </div>
                 </div>
-                <h4>Livraison sous 48h</h4>
-            </div>
-            <div class="card__quality__services">
-                <div class="icone"><i class="fas fa-exchange-alt"></i>
-                </div>
-                <div class="card__quality__services__banner">
-                    <h4>Satisfait ou remboursé !</h4>
-                    <p>Nous vous offrons 14 jours pour nous retourner toutes peluches qui ne vous conviendrait pas !</p>
-                </div>
-            </div>
-        </div>
-        <div class="bear-container container-fluid">
-            <h4>Nos oursons :</h4>
-            <div class="products"></div>
+                <div class="btn__order"><button type="submit"
+                        class="btn btn-primary btn__order__submit">Commander</button></div>
+            </form>
         </div>
     </main>
     <footer>
@@ -97,7 +87,6 @@
             <a class="nav__links" href="#">Mentions légales</a>
         </div>
     </footer>
-    <script src="index.js"></script>
 </body>
 
 </html>

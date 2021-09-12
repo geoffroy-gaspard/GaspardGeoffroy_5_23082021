@@ -1,11 +1,19 @@
+.header {
+    padding: 0;
+}
+
 .nav {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: space-between;
+    background-color: black;
+    padding: 0 3% 0 3%;
+    color: #ffff;
 
     &__logo {
         text-align: left;
+        color: #ffff;
     }
 
     &__icone {
@@ -13,5 +21,15 @@
         align-items: center;
         align-content: center;
         font-size: 1.5em;
+        color: #ffff;
     }
+
+    &__links {
+        color: #ffff;
+    }
+}
+
+.social {
+    font-size: 1.3em;
+    color: #ffff;
 }
