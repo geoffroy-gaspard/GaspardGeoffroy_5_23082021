@@ -13,10 +13,12 @@
         color: darken($color: $color-secondary, $amount: 25%);
 
         &__title {
+            text-align: center;
             align-self: center;
             background-color: rgba(190, 190, 190, 0.5);  
             padding: 2%;
             border-radius: 1em/1em;
+            width: 80%;
         }
 
         @include mq(medium) {

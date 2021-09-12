@@ -29,6 +29,14 @@
     }
 }
 
+.nav__footer {
+    flex-direction: column;
+
+    @include mq(small) {
+        flex-direction: row;
+    }
+}
+
 .social {
     font-size: 1.3em;
     color: #ffff;
