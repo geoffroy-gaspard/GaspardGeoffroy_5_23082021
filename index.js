@@ -1,6 +1,9 @@
 (async function () {
     const products = await getProducts()
-    displayProducts(products)
+
+    for (product of products) {
+    displayProduct(product)
+    }
 })()
 
 function getProducts() {
@@ -16,9 +19,11 @@ function getProducts() {
         })
 }
 
+let product = document.getElementsByClassName("products");
+
 function displayProducts() {
     let affichage = "<div>";
-    for (let teddy of products) {
+    for (let teddies of product) {
         affichage += "<h3>${teddies.name}</h3>";
     }
     affichage += "</div>";

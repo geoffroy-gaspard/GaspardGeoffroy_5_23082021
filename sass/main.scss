@@ -1,5 +1,7 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "Utils/variable_overrides";
+@import "Utils/mixins";
+@import "Utils/maps";
 @import "Layout/nav";
 @import "Layout/bear_bg";
 @import "Base/typography";
