@@ -1,31 +1,35 @@
-(async function () {
-    const products = await getProducts()
+main()
 
-    for (product of products) {
-    displayProduct(product)
+async function main() {
+    const teddies = await getTeddies()
+
+    for (teddy of teddies) {
+        displayTeddy(teddy)
     }
-})()
-
-function getProducts() {
-    return fetch ("http://localhost:3000/api/teddies")
-        .then(function(httpBodyResponse) {
-            return httpBodyResponse.json()
-        })
-        .then(function(products) {
-            console.log(products)
-        })
-        .catch(function(error) {
-            alert(error)
-        })
 }
 
-let product = document.getElementsByClassName("products");
+function getTeddies() {
+    return fetch("http://localhost:3000/api/teddies")
+    .then(function(httpBodyResponse) {
+        return httpBodyResponse.json()
+    })
+    .then(function(teddies) {
+        console.log(teddies);
+        return teddies
+    })
+    .catch(function(error) {
+        alert(error)
+    })
+}
 
-function displayProducts() {
-    let affichage = "<div>";
-    for (let teddies of product) {
-        affichage += "<h3>${teddies.name}</h3>";
-    }
-    affichage += "</div>";
-    document.getElementsByClassName("products").innerHTML = affichage;
-    }
+function displayTeddy(teddy) {
+    const templateElt = document.getElementById("templateTeddy");
+    const cloneElt = document.importNode(templateElt.content, true);
+
+    cloneElt.querySelector(".product__card__name").innerHTML = teddy.name;
+    cloneElt.querySelector(".teddy__pic").src = teddy.imageUrl;
+    cloneElt.querySelector(".product__card__description").innerHTML = teddy.description;
+    cloneElt.querySelector(".product__card__price").innerHTML = teddy.price/100 + "€";
+
+    document.querySelector("#products").appendChild(cloneElt);
+}
