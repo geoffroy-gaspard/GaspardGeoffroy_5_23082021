@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <script src="https://kit.fontawesome.com/094820c2ba.js" crossorigin="anonymous"></script>
+    <title>Orinoco - Nos produits</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid header">
+            <div class="row-header">
+                <div class="nav">
+                    <a href="index.html">
+                        <h1 class="nav__logo">Orinoco</h1>
+                    </a>
+                    <a href="panier.html">
+                        <div class="nav__icone"><i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="teddy">
+            <div class="teddy__card"><img class="teddy__pic" /></div>
+            <h2 class="teddy__name"></h2>
+            <p class="teddy__description"></p>
+            <p class="teddy__price"></p>
+        </div>
+        <div class="row form__choices">
+            <div class="col-4 col-sm-3 col-xl-2">
+                <label for="number">Quantité :</label>
+                <select id="quantity" class="form-select mb-3" aria-label="Quantité">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="col-4 col-sm-3 col-xl-2">
+                <label>Couleur :</label>
+                <select name="color" class="form-select mb-3 teddy__color"></select>
+            </div>
+        </div>
+        <div class="btn__container">
+        <button id="btnAddBasket" class="col-6 col-md-4 col-lg-3 col-xl-2 btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Ajouter au
+            panier</button>
+        </div>
+    </main>
+    <footer>
+        <div class="nav nav__footer">
+            <div class="row row-no-gutters social">
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <a class="social" href="#" title="Twitter"><span class="fa fa-twitter icon-md"></span></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <a class="social" href="#" title="Facebook"><span class="fa fa-facebook icon-md"></span></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <a class="social" href="#" title="Dribble"><span class="fa fa-dribbble icon-md"></span></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <a class="social" href="#" title="Instagram"><span class="fa fa-instagram icon-md"></span></a>
+                    </div>
+                </div>
+            </div>
+            <a class="nav__links" href="#">Contact</a>
+            <a class="nav__links" href="#">Mentions légales</a>
+        </div>
+    </footer>
+    <script src="product.js"></script>
+</body>
+
+</html>
