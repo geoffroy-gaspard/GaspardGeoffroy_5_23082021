@@ -28,7 +28,9 @@
     </header>
     <main>
         <h1 class="title">Mon panier</h1>
-        <div class="products__choice"></div>
+        <div class="empty"></div>
+        <div id="products"></div>
+        <div class="price"><div class="price__total"></div></div>
         <div class="btn__cancel"><button type="button" class="btn btn-secondary">Vider mon panier</button></div>
         <div class="form">
             <div class="form__icone"><i class="fas fa-cash-register"></i>
@@ -37,7 +39,8 @@
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-6 form__name">
-                        <input type="text" class="form-control form__order" id="input" placeholder="Prénom">
+                        <input type="text" class="form-control form__order" id="inlineFormInputName"
+                            placeholder="Prénom">
                     </div>
                     <div class="form-group col-md-6">
                         <input type="text" class="form-control form__order" id="input" placeholder="Nom">
@@ -87,6 +90,7 @@
             <a class="nav__links" href="#">Mentions légales</a>
         </div>
     </footer>
+    <script src="panier.js"></script>
 </body>
 
 </html>

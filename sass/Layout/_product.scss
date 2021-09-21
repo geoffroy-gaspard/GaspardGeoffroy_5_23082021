@@ -9,9 +9,19 @@
     }
 }
 
+.products__order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-weight: bold;
+    font-size: 1,2rem;
+}
+
 .product__card {
     max-width: 80%;
-    max-height: 430px;
+    max-height: 450px;
     border: 5px solid white;
     border-radius: 20px/20px;
     background-color: white;
@@ -47,6 +57,20 @@
         text-align: center;
     }
 
+    &__options {
+        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .btn__delete {
+            margin-bottom: 16px;
+            border-radius: 20px/20px;
+            border-color: black;
+        }
+    }
+
     @include mq(medium) {
         max-width: 45%;
     }
@@ -79,6 +103,20 @@
 .teddy__price {
     font-weight: bold;
     text-align: center;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+    &__total {
+        text-align: center;
+        background-color: white;
+        border-radius: 20px/20px;
+        width: 150px;
+    }
 }
 
 .product__card:nth-child(1) {

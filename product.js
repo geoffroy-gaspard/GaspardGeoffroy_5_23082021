@@ -2,7 +2,6 @@
 (async function () {
     const teddyId = getTeddyId()
     const teddy = await getTeddy(teddyId)
-    console.log(teddy)
     displayTeddy(teddy)
     colorOptions(teddy)
 })
@@ -45,15 +44,42 @@ function displayTeddy(teddy) {
 
         // Récupération des valeures du formulaire
         let teddyOrder = {
-            id: teddy._id,
+            _id: teddy._id,
             name: teddy.name,
-            picUrl: teddy.imageUrl,
+            imageUrl: teddy.imageUrl,
             description: teddy.description,
-            unitPrice: teddy.price / 100,
+            price: teddy.price / 100,
             color: colorChoice.value,
-            quantity: quantity.value
+            quantity: quantity.value,
+            totalCost: (quantity.value)*(teddy.price / 100)
         }
         console.log(teddyOrder);
+
+        // Stockage des valeures dans le local storage
+        let products = JSON.parse(localStorage.getItem("products"));
+
+        // Fonction d'ajout de produit dans le local storage
+        const teddyLocalStorage = () => {
+            // Ajout du produit avec les values choisies par l'utilisateur
+            products.push(teddyOrder);
+            // Transformation en format JSON et envoi à la key "products" du local storage
+            localStorage.setItem("products", JSON.stringify(products));
+    };
+
+        // S'il y a déjà des produits dans le local storage
+        if(products){
+            teddyLocalStorage();
+            console.log(products);
+        }
+
+        // S'il n'y a pas de produits enregistré dans le local storage
+        else{
+            products = [];
+            teddyLocalStorage();
+            console.log(products);
+        }
+
+        
     });
 }
 
@@ -61,9 +87,8 @@ function displayTeddy(teddy) {
 function colorOptions(teddy) {
     const colorChoice = document.querySelector(".teddy__color");
     for (let colors of teddy.colors) {
-        colorChoice.innerHTML += "<option value=" + colors +">" + colors + '</option>';
+        colorChoice.innerHTML += "<option value=" + colors +">" + colors + "</option>";
     }
-    console.log(colorChoice);
 }
 
 // Selection de l'id du formulaire
