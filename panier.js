@@ -213,7 +213,6 @@ btnOrderTeddies.addEventListener("click", (e) => {
             let orderId = response.orderId;
             console.log(orderId);
             localStorage.setItem("orderId", orderId);
-            //localStorage.clear();
             localStorage.setItem("totalPrice", totalPrice);
             window.location.href = "order.html";
         })

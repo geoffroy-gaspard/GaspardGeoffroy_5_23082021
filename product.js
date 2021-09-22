@@ -66,10 +66,17 @@ function displayTeddy(teddy) {
             localStorage.setItem("products", JSON.stringify(products));
     };
 
+        // Fenetre pop-up de confirmation
+        const popUpConfirm = () =>{
+            window.alert( `Vous avez ajouté ${quantity.value} ${teddy.name} de couleur ${colorChoice.value} à votre panier`);
+            window.location.href ="index.html";
+        }
+
         // S'il y a déjà des produits dans le local storage
         if(products){
             teddyLocalStorage();
             console.log(products);
+            popUpConfirm();
         }
 
         // S'il n'y a pas de produits enregistré dans le local storage
@@ -77,6 +84,7 @@ function displayTeddy(teddy) {
             products = [];
             teddyLocalStorage();
             console.log(products);
+            popUpConfirm();
         }
 
         
