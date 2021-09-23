@@ -21,8 +21,7 @@ if (products === null || products == 0) {
             <h5 class="product__card__name">${products[i].quantity} ours en peluche ${products[i].name}</h5>
             <p class="product__card__description">${products[i].description}</p>
             <div class="product__card__options">
-            <p>${products[i].price}.00 € à l'unité</p>
-            <p>Couleur : ${products[i].color}</p>
+            <p>${(products[i].teddyPrice)*(products[i].quantity)}.00 €</p>
             <button class="btn__delete">supprimer l'article</button>
             </div>
     </div>`;
@@ -175,10 +174,7 @@ btnOrderTeddies.addEventListener("click", (e) => {
     if (firstNameControl() && lastNameControl() && cityControl() && emailControl() && addressControl()) {
         // Mettre l'objet "contact" dans le local storage
         localStorage.setItem("contact", JSON.stringify(contact));
-    } else {
-
-    };
-
+        
     // On récupère notre panier
     let basket = JSON.parse(localStorage.getItem("products"));
     // On initialise un tableau qui contiendra les id des produits acheté et qu'on enverra au back
@@ -219,5 +215,9 @@ btnOrderTeddies.addEventListener("click", (e) => {
         .catch(function(error){
             alert("Le serveur rencontre des complications...")
         })
+    } else {
+        // Alert dans le cas où un champs n'a pas été rempli correctement
+        window.alert(`Veuillez remplir le formulaire`);
+    };
 
 });

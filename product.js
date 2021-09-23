@@ -48,46 +48,64 @@ function displayTeddy(teddy) {
             name: teddy.name,
             imageUrl: teddy.imageUrl,
             description: teddy.description,
-            price: teddy.price / 100,
+            teddyPrice: teddy.price / 100,
             color: colorChoice.value,
             quantity: quantity.value,
-            totalCost: (quantity.value)*(teddy.price / 100)
+            totalCost: (quantity.value) * (teddy.price / 100)
         }
         console.log(teddyOrder);
 
         // Stockage des valeures dans le local storage
         let products = JSON.parse(localStorage.getItem("products"));
-
         // Fonction d'ajout de produit dans le local storage
         const teddyLocalStorage = () => {
             // Ajout du produit avec les values choisies par l'utilisateur
             products.push(teddyOrder);
             // Transformation en format JSON et envoi à la key "products" du local storage
             localStorage.setItem("products", JSON.stringify(products));
-    };
+        };
 
         // Fenetre pop-up de confirmation
-        const popUpConfirm = () =>{
-            window.alert( `Vous avez ajouté ${quantity.value} ${teddy.name} de couleur ${colorChoice.value} à votre panier`);
-            window.location.href ="index.html";
+        const popUpConfirm = () => {
+            window.alert(`Vous avez ajouté ${quantity.value} ${teddyOrder.name} de couleur ${colorChoice.value} à votre panier`);
+            window.location.href = "index.html";
         }
 
         // S'il y a déjà des produits dans le local storage
-        if(products){
-            teddyLocalStorage();
-            console.log(products);
-            popUpConfirm();
+        if (products) {
+            // vérifie s'il est déja présent
+            let isAlreadyThere = false;
+            let indexModification;
+            for (teddy of products) {
+                switch (teddy.color && teddy.name) {
+                    case (teddyOrder.color && teddyOrder.name):
+                        isAlreadyThere = true;
+                        indexModification = products.indexOf(teddy);
+                }
+            }
+            // Si le produit est déjà présent dans le local storage on incrémente seulement la quantité et  on recalcule le prix total
+            if (isAlreadyThere) {
+                products[indexModification].quantity = +products[indexModification].quantity + + teddyOrder.quantity;
+                products[indexModification].totalCost = +products[indexModification].totalCost + + teddyOrder.totalCost;
+                localStorage.setItem("products", JSON.stringify(products));
+                popUpConfirm();
+            // Si le produit n'est pas déjà présent on l'ajoute au local storage
+            } else {
+                teddyLocalStorage();
+                console.log(products);
+                popUpConfirm();
+            }
         }
 
         // S'il n'y a pas de produits enregistré dans le local storage
-        else{
+        else {
             products = [];
             teddyLocalStorage();
             console.log(products);
             popUpConfirm();
         }
 
-        
+
     });
 }
 
@@ -95,7 +113,7 @@ function displayTeddy(teddy) {
 function colorOptions(teddy) {
     const colorChoice = document.querySelector(".teddy__color");
     for (let colors of teddy.colors) {
-        colorChoice.innerHTML += "<option value=" + colors +">" + colors + "</option>";
+        colorChoice.innerHTML += "<option value=" + colors + ">" + colors + "</option>";
     }
 }
 
