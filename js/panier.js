@@ -14,7 +14,6 @@ if (products === null || products == 0) {
     let teddyBasket = [];
 
     for (i = 0; i < products.length; i++) {
-        console.log(products.length)
 
         teddyBasket = teddyBasket + `<div class="product__card">
             <div class="product__card__pic"><img class="teddy__pic" src="${products[i].imageUrl}"/></div>
@@ -85,7 +84,6 @@ for (let k = 0; k < products.length; k++) {
 // Calcul des prix dans la variable "totalPrice"
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const totalPrice = calculTotalPrice.reduce(reducer, 0);
-console.log(totalPrice);
 
 // Injection du prix calculé dans le HTML5
 const teddyBill = document.querySelector(".price__total");
@@ -174,47 +172,46 @@ btnOrderTeddies.addEventListener("click", (e) => {
     if (firstNameControl() && lastNameControl() && cityControl() && emailControl() && addressControl() && totalPrice >= 1) {
         // Mettre l'objet "contact" dans le local storage
         localStorage.setItem("contact", JSON.stringify(contact));
-        
-    // On récupère notre panier
-    let basket = JSON.parse(localStorage.getItem("products"));
-    // On initialise un tableau qui contiendra les id des produits acheté et qu'on enverra au back
-    let products = [];
 
-    // Pour chaque produits dans le panier
-    basket.forEach(function (product) {
-        // On push l'id dans le tableau à envoyer
-        products.push(product._id);
-    });
+        // On récupère notre panier
+        let basket = JSON.parse(localStorage.getItem("products"));
+        // On initialise un tableau qui contiendra les id des produits acheté et qu'on enverra au back
+        let products = [];
 
-    // Mettre les valeures du formulaire et les produits dans un objet à envoyer vers le serveur
-    const sentOrder = {
-        contact,
-        products
-    };
+        // Pour chaque produits dans le panier
+        basket.forEach(function (product) {
+            // On push l'id dans le tableau à envoyer
+            products.push(product._id);
+        });
 
-    // Envoi de l'objet "sentOrder" au serveur
-    const orderTeddies = {
-        method: 'POST',
-        body: JSON.stringify(sentOrder),
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-        },
-    };
+        // Mettre les valeures du formulaire et les produits dans un objet à envoyer vers le serveur
+        const sentOrder = {
+            contact,
+            products
+        };
 
-    
-    // Envoi de l'objet "sentOrder" vers le serveur
-    fetch('http://localhost:3000/api/teddies/order', orderTeddies)
-        .then(response => response.json())
-        .then(response => {
-            let orderId = response.orderId;
-            console.log(orderId);
-            localStorage.setItem("orderId", orderId);
-            localStorage.setItem("totalPrice", totalPrice);
-            window.location.href = "order.html";
-        })
-        .catch(function(error){
-            alert("Le serveur rencontre des complications...")
-        })
+        // Envoi de l'objet "sentOrder" au serveur
+        const orderTeddies = {
+            method: 'POST',
+            body: JSON.stringify(sentOrder),
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+        };
+
+
+        // Envoi de l'objet "sentOrder" vers le serveur
+        fetch('http://localhost:3000/api/teddies/order', orderTeddies)
+            .then(response => response.json())
+            .then(response => {
+                let orderId = response.orderId;
+                localStorage.setItem("orderId", orderId);
+                localStorage.setItem("totalPrice", totalPrice);
+                window.location.href = "order.html";
+            })
+            .catch(function (error) {
+                alert("Le serveur rencontre des complications...")
+            })
     } else {
         // Alert dans le cas où un champs n'a pas été rempli correctement
         window.alert(`Veuillez remplir le formulaire`);

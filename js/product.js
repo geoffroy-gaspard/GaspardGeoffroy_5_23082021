@@ -53,7 +53,6 @@ function displayTeddy(teddy) {
             quantity: quantity.value,
             totalCost: (quantity.value) * (teddy.price / 100)
         }
-        console.log(teddyOrder);
 
         // Stockage des valeures dans le local storage
         let products = JSON.parse(localStorage.getItem("products"));
@@ -73,26 +72,25 @@ function displayTeddy(teddy) {
 
         // S'il y a déjà des produits dans le local storage
         if (products) {
-            // vérifie s'il est déja présent
+            // Vérifie si le produit est déja présent
             let isAlreadyThere = false;
             let indexModification;
             for (teddy of products) {
-                switch (teddy.color && teddy.name) {
-                    case (teddyOrder.color && teddyOrder.name):
+                switch (teddy.name) {
+                    case (teddyOrder.name):
                         isAlreadyThere = true;
                         indexModification = products.indexOf(teddy);
                 }
             }
             // Si le produit est déjà présent dans le local storage on incrémente seulement la quantité et  on recalcule le prix total
             if (isAlreadyThere) {
-                products[indexModification].quantity = +products[indexModification].quantity + + teddyOrder.quantity;
-                products[indexModification].totalCost = +products[indexModification].totalCost + + teddyOrder.totalCost;
+                products[indexModification].quantity = +products[indexModification].quantity + +teddyOrder.quantity;
+                products[indexModification].totalCost = +products[indexModification].totalCost + +teddyOrder.totalCost;
                 localStorage.setItem("products", JSON.stringify(products));
                 popUpConfirm();
-            // Si le produit n'est pas déjà présent on l'ajoute au local storage
+                // Si le produit n'est pas déjà présent on l'ajoute au local storage
             } else {
                 teddyLocalStorage();
-                console.log(products);
                 popUpConfirm();
             }
         }
@@ -101,7 +99,6 @@ function displayTeddy(teddy) {
         else {
             products = [];
             teddyLocalStorage();
-            console.log(products);
             popUpConfirm();
         }
 
