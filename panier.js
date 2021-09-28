@@ -171,7 +171,7 @@ btnOrderTeddies.addEventListener("click", (e) => {
     };
 
     // Controle de la validité du formulaire avant envoie dans le local storage
-    if (firstNameControl() && lastNameControl() && cityControl() && emailControl() && addressControl()) {
+    if (firstNameControl() && lastNameControl() && cityControl() && emailControl() && addressControl() && totalPrice >= 1) {
         // Mettre l'objet "contact" dans le local storage
         localStorage.setItem("contact", JSON.stringify(contact));
         
